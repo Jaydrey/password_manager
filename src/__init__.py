@@ -1,2 +1,2 @@
-from utils import psql_config
-from .manager import connect
+from src import manager
+from src.manager import connect

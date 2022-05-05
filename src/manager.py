@@ -1,4 +1,4 @@
-from . import psql_config
+from utils import dbconfig
 import hashlib
 import sys
 import random
@@ -7,7 +7,7 @@ import string
 PASSWORD_LENGTH = 10
 
 def connect():
-    conn = psql_config.dbconfig()
+    conn = dbconfig()
     cursor = conn.cursor()
     # create secrets table key for master key
     secrets_table_q = "CREATE TABLE secrets(masterkey_hash TEXT NOT NULL, salt_secret TEXT NOT NULL)"
@@ -40,3 +40,6 @@ def connect():
     # Notification to user on adding the hashed master password and device secret to tables
     print("Succesfully added the hashed master password and device secret")
     conn.close()
+
+if __name__ == "__main__":
+    connect()

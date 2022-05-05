@@ -1,0 +1,1 @@
+from utils.psql_config import dbconfig
