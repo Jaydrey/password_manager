@@ -11,19 +11,19 @@ def connect():
     conn = dbconfig()
     cursor = conn.cursor()
     # create secrets table key for master key
-    secrets_table_q = "CREATE TABLE secrets(masterkey_hash TEXT NOT NULL, salt_secret TEXT NOT NULL)"
+    secrets_table_q = "CREATE TABLE IF NOT EXISTS secrets(masterkey_hash TEXT NOT NULL, salt_secret TEXT NOT NULL)"
     cursor.execute(secrets_table_q)
 
     # create password entries for storing our passwords
-    entries_table_q = "CREATE TABLE entries(sitename TEXT NOT NULL, siteurl TEXT NOT NULL, email TEXT NOT NULL, \
+    entries_table_q = "CREATE TABLE IF NOT EXISTS entries(sitename TEXT NOT NULL, siteurl TEXT NOT NULL, email TEXT NOT NULL, \
     username TEXT, password TEXT NOT NULL)"
     cursor.execute(entries_table_q)
     
     # creating a master password [function]
     while True:
-        master_password = getpass("Create a master password atleast 8char(s):\t")
+        master_password = getpass("Create a master password atleast 10char(s):\t")
         repeat_password = getpass("Retype the password again:\t")
-        if master_password!="" and len(master_password)>=PASSWORD_LENGTH and master_password==repeat_password:
+        if len(master_password)>=PASSWORD_LENGTH and master_password==repeat_password:
             break
     
     # hashing our master password [function]

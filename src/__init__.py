@@ -2,6 +2,7 @@ from src import utils
 from src import manager
 from src.manager import connect
 from src import generate_password
+from src.generate_password import generate
 from src import save_password
 from src.save_password import generate_master
 from src import get_password
