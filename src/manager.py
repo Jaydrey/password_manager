@@ -3,6 +3,7 @@ import hashlib
 import sys
 import random
 import string
+from getpass import getpass
 
 PASSWORD_LENGTH = 10
 
@@ -20,8 +21,8 @@ def connect():
     
     # creating a master password [function]
     while True:
-        master_password = input("Create a master password atleast 8char(s):\t")
-        repeat_password = input("Retype the password again:\t")
+        master_password = getpass("Create a master password atleast 8char(s):\t")
+        repeat_password = getpass("Retype the password again:\t")
         if master_password!="" and len(master_password)>=PASSWORD_LENGTH and master_password==repeat_password:
             break
     

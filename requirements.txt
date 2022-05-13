@@ -1,0 +1,5 @@
+clipboard==0.0.4
+colorama==0.4.4
+psycopg2==2.9.3
+pyperclip==1.8.2
+python-decouple==3.6
