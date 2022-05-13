@@ -6,10 +6,10 @@ from Crypto.Hash import SHA512
 # from Crypto.Random import get_random_bytes
 from utils import aes256
 
-COUNT = 1_000_000
-DKLEN = 32
 
 def generate_master(master_password:str, device_secret:str)->bytes:
+    COUNT = 1_000_000
+    DKLEN = 32
     ms = master_password.encode()
     ds = device_secret.encode()
     master_key = PBKDF2(ms, ds, DKLEN, count=COUNT, hmac_hash_module=SHA512)
