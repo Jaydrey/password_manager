@@ -132,4 +132,4 @@ dmypy.json
 .db
 
 # debugger
-./src/debug.py/
+/debug.py/
