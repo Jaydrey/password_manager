@@ -46,6 +46,7 @@ def save_entries(sitename:str, siteurl:str, username:str, email:str, master_pass
     query = "INSERT INTO entries (sitename, siteurl, email, username, password) VALUES (%s, %s, %s, %s, %s)"
     cursor.execute(query, (sitename, siteurl,email, username, encrypted_entries))
     conn.commit()
+    print(f"your password: {password}")
     
 
 def main()->None:
